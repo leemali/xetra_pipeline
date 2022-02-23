@@ -61,7 +61,7 @@ class MetaProcess():
         """
         start = datetime.strptime(first_date,
                                     MetaProcessFormat.META_DATE_FORMAT.value)\
-                                        .date() - timedelta(days=1)
+                                        .date() - timedelta(days=0)
         today = datetime.today().date()
         try:
             # If meta file exists create return_date_list using the content of the meta file
