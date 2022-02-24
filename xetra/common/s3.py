@@ -59,7 +59,9 @@ class S3BucketConnector():
         csv_obj = self._bucket.Object(key=key).get().get("Body").read().decode(encoding)
         data = StringIO(csv_obj)
         data_frame = pd.read_csv(data, sep=sep)
-        return data_frame
+        if len(data_frame)>0:
+            print(data_frame)
+            return data_frame
 
 
     def write_df_to_s3(self, data_frame: pd.DataFrame, key: str, file_format: str):
