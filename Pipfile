@@ -5,11 +5,10 @@ name = "pypi"
 
 [packages]
 pandas = "*"
-
 boto3 = "*"
 pyarrow = "*"
 pyyaml = "*"
-
+memory-profiler = "*"
 
 [dev-packages]
 awscli = "*"
@@ -17,7 +16,8 @@ jupyter = "*"
 pylint = "*"
 moto = "*"
 coverage = "*"
- 
-[requires]
+memory-profiler = "*"
+matplotlib = "*"
 
+[requires]
 python_version = "3.9"
