@@ -31,7 +31,7 @@ class S3BucketConnector():
                                      aws_secret_access_key = os.environ[secret_key])
         self._s3 = self.session.resource(service_name = "s3", endpoint_url = endpoint_url)
         self._bucket = self._s3.Bucket(bucket)
-
+    @profile
     def list_files_in_prefix(self, prefix: str):
         """
         listing all files with a prefix on the S3 bucket
@@ -43,7 +43,7 @@ class S3BucketConnector():
         """
         files = [obj.key for obj in self._bucket.objects.filter(Prefix = prefix)]
         return files
-
+    @profile
     def read_csv_to_df(self, key: str, encoding: str = "utf-8", sep: str = ","):
         """
         reading a csv from file to S3 bucket and returning a dataframe
@@ -63,7 +63,7 @@ class S3BucketConnector():
             print(data_frame)
             return data_frame
 
-
+    @profile
     def write_df_to_s3(self, data_frame: pd.DataFrame, key: str, file_format: str):
         """
         writing a Pandas DataFrame to s3
